@@ -1,4 +1,5 @@
-import Facebook from "../../assets/facebook-square-brands.svg";
+import { useState } from "react";
+import emailjs from "emailjs-com";
 import LinkedId from "../../assets/linkedin-brands.svg";
 import Twitter from "../../assets/twitter-square-brands.svg";
 import Instagram from "../../assets/instagram-square-brands.svg";
@@ -10,7 +11,6 @@ const ContactSection = styled.section`
   background-color: #0a0b10;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   justify-content: center;
 `;
@@ -29,7 +29,6 @@ const Title = styled.h1`
     left: 50%;
     bottom: 0;
     transform: translate(-50%, 0.5rem);
-    /* or 100px */
     border-bottom: 2px solid var(--pink);
   }
 `;
@@ -40,8 +39,7 @@ const Icons = styled.div`
   a {
     &:hover {
       img {
-        filter: invert(20%) sepia(100%) saturate(500%) hue-rotate(580deg)
-          brightness(100%) contrast(97%);
+        filter: invert(20%) sepia(100%) saturate(500%) hue-rotate(580deg) brightness(100%) contrast(97%);
       }
     }
     &:not(:last-child) {
@@ -58,43 +56,23 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  input {
+  input, textarea {
     padding: 1rem calc(0.5rem + 1vw);
     margin-bottom: 1rem;
     background-color: var(--nav2);
     border: none;
     border-radius: 4px;
     color: #eff7f8;
-    &:active,
     &:focus {
-      border: none;
-      outline: none;
       background-color: var(--nav);
     }
     &::placeholder {
       color: #eff7f8;
       opacity: 0.6;
-    }
-    &[name="name"] {
-      margin-right: 2rem;
     }
   }
   textarea {
-    padding: 1rem calc(0.5rem + 1vw);
-    margin-bottom: 1rem;
-    background-color: var(--nav2);
-    border: none;
-    border-radius: 4px;
-    color: #eff7f8;
     margin-bottom: 2rem;
-    &:focus,
-    &:active {
-      background-color: var(--nav);
-    }
-    &::placeholder {
-      color: #eff7f8;
-      opacity: 0.6;
-    }
   }
   button {
     padding: 0.8rem 2rem;
@@ -114,61 +92,79 @@ const Form = styled.form`
 `;
 
 const Row = styled.div`
-  @media only Screen and (max-width: 40em) {
-    display: flex;
+  display: flex;
+  gap: 1rem; /* Added space between name and email */
+  @media only screen and (max-width: 40em) {
     flex-direction: column;
-    input {
-      &[name="name"] {
-        margin-right: 0;
-      }
-    }
   }
 `;
+
+const StatusMessage = styled.p`
+  color: white;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.1);
+`;
+
 const Contact = () => {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    emailjs.sendForm(
+      "service_b894m2b", // Replace with your EmailJS Service ID
+      "template_33r9z1o", // Replace with your EmailJS Template ID
+      e.target,
+      "DVqxroy9bdVgwQu-O" // Replace with your EmailJS Public Key
+    ).then(
+      (result) => {
+        console.log("Email sent successfully!", result.text);
+        setStatusMessage("✅ Your message has been sent successfully!");
+      },
+      (error) => {
+        console.error("Error sending email:", error.text);
+        setStatusMessage("❌ Failed to send message. Please try again later.");
+      }
+    );
+
+    e.target.reset();
+  };
+
   return (
     <ContactSection id="contact">
       <Title>Get in touch</Title>
-      {/* <Text>Lorem ipsum dolor sit amet, consectetur adipisicing.</Text> */}
       <Icons>
-        <a href="https://www.facebook.com/">
-          {" "}
-          <img src={Facebook} alt="Facebook" />
+        <a href="https://www.linkedin.com/in/elevate-media-3a6404355/">
+          <img src={LinkedId} alt="LinkedIn" />
         </a>
-        <a href="https://www.linkedin.com//">
-          <img src={LinkedId} alt="LinkedId" />
-        </a>
-        <a href="https://twitter.com/">
+        <a href="https://x.com/ElevateMedia96">
           <img src={Twitter} alt="Twitter" />
         </a>
-        <a href="https://www.instagram.com/">
+        <a href="https://www.instagram.com/elevatemedia96/?hl=en">
           <img src={Instagram} alt="Instagram" />
         </a>
       </Icons>
-      <Form>
+
+      <Form onSubmit={handleSubmit}>
         <Row>
-          <input name="name" type="text" placeholder="your name" />
-          <input
-            name="email"
-            type="email"
-            placeholder="enter working email id"
-          />
+          <input name="name" type="text" placeholder="Your name" value={formData.name} onChange={handleChange} required />
+          <input name="email" type="email" placeholder="Enter working email" value={formData.email} onChange={handleChange} required />
         </Row>
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="2"
-          placeholder="your message"
-        ></textarea>
+        <textarea name="message" cols="30" rows="2" placeholder="Your message" value={formData.message} onChange={handleChange} required></textarea>
+
         <div style={{ margin: "0 auto" }}>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-          >
-            Submit
-          </button>
+          <button type="submit">Submit</button>
         </div>
+        {statusMessage && <StatusMessage>{statusMessage}</StatusMessage>}
       </Form>
     </ContactSection>
   );

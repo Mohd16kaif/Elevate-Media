@@ -139,10 +139,7 @@ const About = () => {
             </Human>
 
             <Text>
-              We help our customers to tell about themselves, to grow and stand
-              out in an increasingly competitive digital world, through creative
-              projects that are able to attract and involve, creating strategic
-              value.
+            We help YouTubers and content creators grow and stand out in the competitive digital space through professional video editing, eye-catching thumbnails, and strategic YouTube channel management to maximize reach and engagement.
             </Text>
             <div>
               <Circle style={{ backgroundColor: "var(--purple)" }} />

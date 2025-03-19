@@ -329,11 +329,11 @@ const Services = () => {
 
       <Content ref={addToRefs}>
         <TextBlock
-          topic="Design"
-          title={<h1>We build award winning Designs</h1>}
+          topic="Editing"
+          title={<h1>High-quality, seamless video edits that enhance storytelling and engagement</h1>}
           subText={
             <h5>
-              We help clients to build great design to attract more customers
+              Seamless, high-quality edits that keep your audience hooked
             </h5>
           }
         />
@@ -344,12 +344,11 @@ const Services = () => {
       </Content>
       <Content ref={addToRefs}>
         <TextBlock
-          topic="Develop"
-          title={<h1>We Develope high quality Web & App</h1>}
+          topic="Thumbnails"
+          title={<h1>Eye-catching, custom visuals designed to maximize clicks and visibility</h1>}
           subText={
             <h5>
-              We build appropriate solution to develope your website & app with
-              best tools available
+              Custom visuals designed to boost clicks and visibility.
             </h5>
           }
         />
@@ -360,13 +359,11 @@ const Services = () => {
       </Content>
       <Content>
         <TextBlock
-          topic="Support"
-          title={<h1>We provide support for your digital presence</h1>}
+          topic="Management"
+          title={<h1>Hassle-free video uploads, titles, tags, and optimization for consistency</h1>}
           subText={
             <h5>
-              Once your system is online, we will stay on hand to help you use
-              it and provide technical support and maintenance <br /> your
-              business
+             Effortless channel management for a smooth content workflow
             </h5>
           }
         />

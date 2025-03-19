@@ -2,6 +2,10 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 
+// body {
+//   cursor: url('/cursor.png')32 32, auto;
+
+// }
 :root{
    --background: #eff7f9;
    --black:#0a0b10;
@@ -30,7 +34,6 @@ html{
         font-family: 'Poppins', sans-serif;
             }
     body {
-
         margin:0;
         padding:0;
         border: 0;

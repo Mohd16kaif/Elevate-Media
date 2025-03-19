@@ -191,11 +191,11 @@ const HeroSection = () => {
         <Lb id="leftBlock">
           <Topic>
             <Circle />
-            <span>We Build Web</span>
+            <span>We Elevate Content</span>
           </Topic>
-          <Title>Transforming your digital presence</Title>
+          <Title>Professional Video Editing & Thumbnails to Make You Stand Out</Title>
           <SubText>
-            we help fast growing companies build award winning websites
+          Helping creators scale with top-tier video editing and design
           </SubText>
           <CTA>
             Get in touch &nbsp;

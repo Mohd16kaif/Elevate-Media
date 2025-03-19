@@ -48,11 +48,15 @@ const ScrollToTop = () => {
     const element = document.getElementById("home");
     element.scrollIntoView({
       behavior: "smooth",
-      block: "end",
-      inline: "nearest",
+      block: "start", // Ensures smooth scrolling to the top
     });
+  
+    // Add a delay for an even slower effect
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 500); // Adjust time as needed
   };
-
+  
   useEffect(() => {
     const element = ref.current;
     gsap.to(element, {
@@ -60,10 +64,32 @@ const ScrollToTop = () => {
       scrollTrigger: {
         trigger: element,
         start: "top top",
-        scrub: true,
+        scrub: 2, // Increase scrub value for a smoother effect
       },
     });
   }, []);
+  
+
+  // const scrollUp = () => {
+  //   const element = document.getElementById("home");
+  //   element.scrollIntoView({
+  //     behavior: "smooth",
+  //     block: "end",
+  //     inline: "nearest",
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   const element = ref.current;
+  //   gsap.to(element, {
+  //     display: "block",
+  //     scrollTrigger: {
+  //       trigger: element,
+  //       start: "top top",
+  //       scrub: true,
+  //     },
+  //   });
+  // }, []);
 
   return (
     <Up onClick={scrollUp}>

@@ -84,27 +84,26 @@ const Testimonials = () => {
       <Carousal>
         <Slider {...settings}>
           <Card
-            text="CodeBucks has been essential part of our business. I would definetly
-        recommend CodeBucks. It has been amazing to have them."
-            name="Jenny (CodeCall)"
+            text="I used to spend hours editing, trying to make my videos look good. Now, I just send them over, and they come back looking 10x better. It’s such a relief"
+            name=" Jake, YouTuber"
             image="avatar-1"
           />
 
           <Card
-            text="CodeBucks has been essential part of our business. I would definetly recommend CodeBucks. It has been amazing to have them."
-            name="Jenny (CodeCall)"
+            text="Thumbnails were my biggest struggle. No matter what I did, they never stood out. Ever since I started getting them done professionally, my views have shot up."
+            name="Emily, Content Creator"
             image="avatar-2"
           />
 
           <Card
-            text="CodeBucks has been essential part of our business. I would definetly recommend CodeBucks. It has been amazing to have them."
-            name="Jenny (CodeCall)"
+            text="Managing a YouTube channel is way more work than people realize. Having someone handle uploads, titles, and tags has saved me so much time. Best decision ever."
+            name="Ryan, Vlogger"
             image="avatar-3"
           />
 
           <Card
-            text="CodeBucks has been essential part of our business. I would definetly recommend CodeBucks. It has been amazing to have them."
-            name="Jenny (CodeCall)"
+            text="At first, I was skeptical about hiring an editor, but after seeing the difference in my videos, I wish I had done it sooner. The quality speaks for itself."
+            name="Sarah, Streamer"
             image="avatar-4"
           />
         </Slider>
