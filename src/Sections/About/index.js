@@ -139,7 +139,7 @@ const About = () => {
             </Human>
 
             <Text>
-            We help YouTubers and content creators grow and stand out in the competitive digital space through professional video editing, eye-catching thumbnails, and strategic YouTube channel management to maximize reach and engagement.
+            We help finance content creators elevate their brand with expert video editing, compelling thumbnails, and strategic content management. Our goal: Save you time, build your credibility, and drive real growth so you can focus on what you do best.
             </Text>
             <div>
               <Circle style={{ backgroundColor: "var(--purple)" }} />

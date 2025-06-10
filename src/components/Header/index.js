@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import logo from "../../assets/logo.svg";
 
-
 const Headers = styled.header`
   display: flex;
   justify-content: space-between;
@@ -34,7 +33,7 @@ const Logo = styled.a`
 `;
 
 const Nav = styled.nav`
-  width: 30rem;
+  width: 40rem;
   max-width: 45rem;
   display: flex;
   align-items: center;
@@ -51,6 +50,7 @@ const Nav = styled.nav`
       content: "";
       display: block;
       height: 3px;
+
       width: 0;
       background: transparent;
       transition: width 0.5s;
@@ -59,14 +59,6 @@ const Nav = styled.nav`
       width: 100%;
       background: var(--purple);
     }
-    /* &:not(:last-child) {
-      margin-right: 2rem;
-    } */
-    /* @media only Screen and (max-width: 48em) {
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
-    } */
   }
 `;
 
@@ -94,6 +86,7 @@ const Button = styled.button`
     }
   }
 `;
+
 const HamburgerBtn = styled.button`
   display: none;
   @media only Screen and (max-width: 48em) {
@@ -154,26 +147,17 @@ const MobileMenu = styled.nav`
     color: var(--white);
     font-weight: 600;
     font-size: 1.5rem;
-    margin: 1.5rem;
+    margin: 1.5rem 0; /* Added space between buttons */
     cursor: pointer;
   }
 `;
+
 const Header = () => {
   const [click, setClick] = useState(false);
-  //const handleClick = () => setClick(!click);
   const ref = useRef(null);
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // const scrollUp = (id, e) => {
-  //   e.preventDefault();
-  //   const element = document.getElementById(id);
-  //   element.scrollIntoView({
-  //     behavior: "smooth",
-  //     block: "end",
-  //     inline: "nearest",
-  //   });
-  // };
   const scrollUp = (id, e) => {
     e.preventDefault();
     const element = document.getElementById(id);
@@ -186,7 +170,6 @@ const Header = () => {
       console.error(`Element with id '${id}' not found.`);
     }
   };
-  
 
   const handleClick = (id, e) => {
     setClick(!click);
@@ -195,9 +178,8 @@ const Header = () => {
 
   useEffect(() => {
     const element = ref.current;
-
     const mq = window.matchMedia("(max-width: 40em)");
-    // console.log("mq", mq);
+
     if (mq.matches) {
       gsap.to(element, {
         position: "fixed",
@@ -205,14 +187,10 @@ const Header = () => {
         left: "0",
         right: "0",
         padding: "1rem 2.5rem",
-
         borderRadius: "0 0 50px 50px",
-
         border: "2px solid var(--white)",
-
         duration: 1,
         ease: "power1.out",
-
         scrollTrigger: {
           trigger: element,
           start: "bottom+=200 top",
@@ -227,14 +205,10 @@ const Header = () => {
         left: "3rem",
         right: "3rem",
         padding: "1.5rem 2rem",
-
         borderRadius: "50px",
-
         border: "3px solid var(--white)",
-
         duration: 1,
         ease: "power1.out",
-
         scrollTrigger: {
           trigger: element,
           start: "bottom+=300 top",
@@ -247,52 +221,37 @@ const Header = () => {
 
   return (
     <Headers ref={ref}>
-    <Logo>
-      <img src={logo} alt="Elevate Media" />
-      <h3>Elevate <span style={{ fontSize: "0.9em" }}>Media</span></h3>
-    </Logo>
-  
-    <Nav>
-      <a href="#home" onClick={(e) => scrollUp("home", e)}>
-        Home
-      </a>
-      {/* <Link to="#showcase">Showcase</Link> Moved Showcase after Home */}
-      {/* <a href="#showcase" onClick={(e) => scrollUp("showcase", e)}>Showcase</a> */}
-      <a href="#showcase" onClick={(e) => scrollUp("showcase", e)}>Portfolio</a>
+      <Logo>
+        <img src={logo} alt="Elevate Media" />
+        <h3>Elevate <span style={{ fontSize: "0.9em" }}>Media</span></h3>
+      </Logo>
 
-      <a href="#about" onClick={(e) => scrollUp("about", e)}>
-        About Us
-      </a>
-      <a href="#services" onClick={(e) => scrollUp("services", e)}>
-        Services
-      </a>
-      <a href="#contact" onClick={(e) => scrollUp("contact", e)}>
-        <Button>Contact Us</Button>
-      </a>
-    </Nav>
-  
-    <HamburgerBtn clicked={+click} onClick={() => setClick(!click)}>
-      <span></span>
-    </HamburgerBtn>
-  
-    <MobileMenu clicked={+click}>
-      <a href="#home" onClick={(e) => handleClick("home", e)}>
-        Home
-      </a>
-      <a href="#showcase" onClick={(e) => scrollUp("showcase", e)}>Portfolio</a>
-      {/* <Link to="/showcase" onClick={() => setClick(false)}>Showcase</Link> Moved Showcase after Home */}
-      <a href="#about" onClick={(e) => handleClick("about", e)}>
-        About Us
-      </a>
-      <a href="#services" onClick={(e) => handleClick("services", e)}>
-        Services
-      </a>
-      <a href="#contact" onClick={(e) => handleClick("contact", e)}>
-        <Button>Contact Us</Button>
-      </a>
-    </MobileMenu>
-  </Headers>
-  
+      <Nav>
+        <a href="#home" onClick={(e) => scrollUp("home", e)}>Home</a>
+        <a href="#showcase" onClick={(e) => scrollUp("showcase", e)}>Portfolio</a>
+        <a href="#impact" onClick={(e) => scrollUp("impact", e)}>Impact</a>
+        <a href="#about" onClick={(e) => scrollUp("about", e)}>About Us</a>
+        <a href="#services" onClick={(e) => scrollUp("services", e)}>Services</a>
+        <a href="#contact" onClick={(e) => scrollUp("contact", e)}>
+          <Button>Contact Us</Button>
+        </a>
+      </Nav>
+
+      <HamburgerBtn clicked={+click} onClick={() => setClick(!click)}>
+        <span></span>
+      </HamburgerBtn>
+
+      <MobileMenu clicked={click}>
+        <a href="#home" onClick={(e) => handleClick("home", e)}>Home</a>
+        <a href="#showcase" onClick={(e) => handleClick("showcase", e)}>Portfolio</a>
+        <a href="#impact" onClick={(e) => handleClick("impact", e)}>Impact</a>
+        <a href="#about" onClick={(e) => handleClick("about", e)}>About Us</a>
+        <a href="#services" onClick={(e) => handleClick("services", e)}>Services</a>
+        <a href="#contact" onClick={(e) => handleClick("contact", e)}>
+          <Button>Contact Us</Button>
+        </a>
+      </MobileMenu>
+    </Headers>
   );
 };
 

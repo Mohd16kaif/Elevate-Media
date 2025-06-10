@@ -4,29 +4,19 @@ import thumb1 from "../assets/thumbnail-1.jpg";
 import thumb2 from "../assets/thumbnail-2.jpg";
 import thumb3 from "../assets/thumbnail-3.png";
 import thumb4 from "../assets/thumbnail-4.jpeg";
-import thumb5 from "../assets/thumbnail-5.jpg";
-import thumb9 from "../assets/thumbnail-9.jpg";
-import thumb10 from "../assets/thumbnail-10.jpg";
-import thumb11 from "../assets/thumbnail-11.jpg";
+import thumb5 from "../assets/thumbnail-5.png";
+import thumb9 from "../assets/thumbnail-6.jpg";
 
 import longVideo1 from "../assets/longform-1.mp4";
 import longVideo2 from "../assets/longform-2.mp4";
 import longVideo3 from "../assets/longform-3.mp4";
 import longVideo4 from "../assets/longform-4.mp4";
-import longVideo5 from "../assets/longform-5.mp4";
-import longVideo6 from "../assets/longform-6.mp4";
-import longVideo7 from "../assets/longform-7.mp4";
-import longVideo8 from "../assets/longform-8.mp4";
-import longVideo9 from "../assets/longform-9.mp4";
 
 import shortform1 from "../assets/shortform-1.mp4";
 import shortform2 from "../assets/shortform-2.mp4";
 import shortform3 from "../assets/shortform-3.mp4";
 import shortform4 from "../assets/shortform-4.mp4";
-import shortform5 from "../assets/shortform-5.mp4";
-import shortform6 from "../assets/shortform-6.mp4";
-import shortform7 from "../assets/shortform-7.mp4";
-import shortform8 from "../assets/shortform-8.mp4";
+
 
 const ShowcaseContainer = styled.div`
   padding: 40px;
@@ -77,11 +67,13 @@ const Row = styled.div`
   }
 
   &.longs {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);  /* 2x2 grid for long videos */
+    max-width: 900px; /* Reduce size of long videos in PC view */
+    margin: 0 auto;   /* Center the grid */
   }
 
   &.thumbs {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);  /* 3x3 grid for thumbnails */
     img {
       height: auto; /* Let the aspect-ratio handle the height */
       aspect-ratio: 16 / 9; /* Ensure 16:9 aspect ratio */
@@ -113,9 +105,13 @@ const Row = styled.div`
 
     &.longs {
       grid-template-columns: repeat(1, 1fr);
+      video {
+        width: 100%; /* Full width for long videos */
+      }
     }
   }
 `;
+
 const VideoCard = styled.div`
   position: relative;
   background: transparent;
@@ -171,7 +167,7 @@ const VideoCard = styled.div`
     border-radius: 10px;
     display: block;
   }
-    
+  
   /* Apply hover effect only to the video inside short-video */
   @media (min-width: 769px) {
     &.short-video:hover {
@@ -230,26 +226,6 @@ const ShowcasePage = () => {
               <source src={shortform4} type="video/mp4" />
             </video>
           </VideoCard>
-          <VideoCard className="short-video">
-            <video controls>
-              <source src={shortform5} type="video/mp4" />
-            </video>
-          </VideoCard>
-          <VideoCard className="short-video">
-            <video controls>
-              <source src={shortform6} type="video/mp4" />
-            </video>
-          </VideoCard>
-          <VideoCard className="short-video">
-            <video controls>
-              <source src={shortform7} type="video/mp4" />
-            </video>
-          </VideoCard>
-          <VideoCard className="short-video">
-            <video controls>
-              <source src={shortform8} type="video/mp4" />
-            </video>
-          </VideoCard>
         </Row>
 
         <SectionTitle>Long Form</SectionTitle>
@@ -274,31 +250,6 @@ const ShowcasePage = () => {
               <source src={longVideo4} type="video/mp4" />
             </video>
           </VideoCard>
-          <VideoCard className="long-video">
-            <video controls>
-              <source src={longVideo5} type="video/mp4" />
-            </video>
-          </VideoCard>
-          <VideoCard className="long-video">
-            <video controls>
-              <source src={longVideo6} type="video/mp4" />
-            </video>
-          </VideoCard>
-          <VideoCard className="long-video">
-            <video controls>
-              <source src={longVideo7} type="video/mp4" />
-            </video>
-          </VideoCard>
-          <VideoCard className="long-video">
-            <video controls>
-              <source src={longVideo8} type="video/mp4" />
-            </video>
-          </VideoCard>
-          <VideoCard className="long-video">
-            <video controls>
-              <source src={longVideo9} type="video/mp4" />
-            </video>
-          </VideoCard>
         </Row>
 
         <SectionTitle>Thumbnails</SectionTitle>
@@ -321,13 +272,7 @@ const ShowcasePage = () => {
           <VideoCard>
             <img src={thumb9} alt="Thumbnail 3" />
           </VideoCard>
-          <VideoCard>
-            <img src={thumb10} alt="Thumbnail 1" />
-          </VideoCard>
-          <VideoCard>
-            <img src={thumb11} alt="Thumbnail 2" />
-          </VideoCard>
-              </Row>
+        </Row>
       </ShowcaseGrid>
     </ShowcaseContainer>
   );

@@ -65,6 +65,8 @@ const Carousal = styled.div`
     margin: 0;
     padding: 0;
     margin-bottom: 3rem;
+
+    
   }
 `;
 
@@ -84,25 +86,25 @@ const Testimonials = () => {
       <Carousal>
         <Slider {...settings}>
           <Card
-            text="I used to spend hours editing, trying to make my videos look good. Now, I just send them over, and they come back looking 10x better. It’s such a relief"
+            text="I just focus on filming—they handle editing, thumbnails, uploads. Everything looks clean and professional, and my channel’s finally growing."
             name=" Jake, YouTuber"
             image="avatar-1"
           />
 
           <Card
-            text="Thumbnails were my biggest struggle. No matter what I did, they never stood out. Ever since I started getting them done professionally, my views have shot up."
+            text="Before them, I spent hours editing. Now my content thrives, looks pro, and I can focus on growing. Game-changer."
             name="Emily, Content Creator"
             image="avatar-2"
           />
 
           <Card
-            text="Managing a YouTube channel is way more work than people realize. Having someone handle uploads, titles, and tags has saved me so much time. Best decision ever."
+            text="They get the finance niche, keep me consistent, avoid burnout, and always deliver on-brand videos—on time."
             name="Ryan, Vlogger"
             image="avatar-3"
           />
 
           <Card
-            text="At first, I was skeptical about hiring an editor, but after seeing the difference in my videos, I wish I had done it sooner. The quality speaks for itself."
+            text="I was skeptical at first, but the video quality proved me wrong—I just wish I’d hired them sooner."
             name="Sarah, Streamer"
             image="avatar-4"
           />

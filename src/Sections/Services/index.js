@@ -330,10 +330,10 @@ const Services = () => {
       <Content ref={addToRefs}>
         <TextBlock
           topic="Editing"
-          title={<h1>High-quality, seamless video edits that enhance storytelling and engagement</h1>}
+          title={<h1>High-performance edits that turn valuable insights into engaging content</h1>}
           subText={
             <h5>
-              Seamless, high-quality edits that keep your audience hooked
+           Seamless, high-quality editing designed to strengthen your message and boost audience retention.
             </h5>
           }
         />
@@ -345,10 +345,10 @@ const Services = () => {
       <Content ref={addToRefs}>
         <TextBlock
           topic="Thumbnails"
-          title={<h1>Eye-catching, custom visuals designed to maximize clicks and visibility</h1>}
+          title={<h1>Strategic thumbnails tailored for clicks and credibility.</h1>}
           subText={
             <h5>
-              Custom visuals designed to boost clicks and visibility.
+            Custom visuals that increase visibility while preserving the authority of your brand.
             </h5>
           }
         />
@@ -360,10 +360,10 @@ const Services = () => {
       <Content>
         <TextBlock
           topic="Management"
-          title={<h1>Hassle-free video uploads, titles, tags, and optimization for consistency</h1>}
+          title={<h1>End-to-end channel support that drives consistency and saves time</h1>}
           subText={
             <h5>
-             Effortless channel management for a smooth content workflow
+            Effortless content management—from uploads and titles to tags and optimization.
             </h5>
           }
         />

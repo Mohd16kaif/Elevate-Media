@@ -193,7 +193,7 @@ const HeroSection = () => {
             <Circle />
             <span>We Elevate Content</span>
           </Topic>
-          <Title>Professional Video Editing & Thumbnails to Make You Stand Out</Title>
+          <Title>High-Impact Video Editing That Elevates Financial Voices</Title>
           <SubText>
           Helping creators scale with top-tier video editing and design
           </SubText>
